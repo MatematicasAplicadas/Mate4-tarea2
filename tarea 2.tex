@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{amsmath}
 
 \usepackage{anysize}
 \marginsize{1.3cm}{1.3cm}{1.3cm}{1.3cm}
@@ -51,6 +52,118 @@
 
             \color{azul}
             % Respuesta
+            Primero encontremos la solución general de la ec. homogénea asociada, es decir,
+            $\ddot y+y=0$, que tiene como ecuación característica $r^2+1=0$.
+            \begin{align*}
+                r^2+1 &= 0 \\
+                r^2 &= -1 \\
+                r &= \pm\sqrt{-1} \\
+                r_{1,2} &= \pm i
+            \end{align*}
+            Como tiene raíces complejas, tomamos de una raíz su parte real como $\lambda=0$ y el
+            coeficiente de su parte imaginaria como $\mu=1$ y obtenemos la solución general de 
+            la homogénea asociada
+            \begin{align*}
+                \Phi(t) &= e^{0t}(C_1\cos{t}+C_2\sen{t}) \\
+                        &= C_1\cos{t}+C_2\sen{t}
+            \end{align*}
+            Ahora encontremos una solución particular de la ecuación diferencial.
+
+            Comencemos simplificando el lado derecho, utilizamos la identidad
+            $\cos{u}\cos{v}=\frac{1}{2}\left[\cos{(u+v)}+\cos{(u-v)}\right]$
+            \begin{align*}
+                (\cos{t})(\cos{2t})(\cos{3t})
+                &= (\cos{t})\frac{1}{2}\left[
+                    \cos{(5t)}+\cos{(t)}
+                \right]\\
+                &= \frac{1}{2}\left[
+                    \cos{(5t)}\cos{t}+\cos{t}\cos{t}
+                \right] \\
+                &= \frac{1}{2}\left[
+                    \frac{1}{2}(\cos{6t}+\cos{4t})
+                    +\frac{1}{2}(\cos{2t}+\cos{0})
+                \right] \\
+                &= \frac{1}{4}\cos{6t} + \frac{1}{4}\cos{4t} + \frac{1}{4}\cos{2t} + \frac{1}{4}
+            \end{align*}
+            La solución particular buscada será la suma de las soluciones particulares para cada
+            término de la suma, es decir, $\Psi(t)=\Psi_1+\Psi_2+\Psi_3+\Psi_4$ donde
+            \begin{itemize}
+                \item $\Psi_1$ es la solución particular de $\ddot y+y=\frac{1}{4}\cos{6t}$
+                \item $\Psi_2$ es la solución particular de $\ddot y+y=\frac{1}{4}\cos{4t}$
+                \item $\Psi_3$ es la solución particular de $\ddot y+y=\frac{1}{4}\cos{2t}$
+                \item $\Psi_4$ es la solución particular de $\ddot y+y=\frac{1}{4}$
+            \end{itemize}
+            Para $\ddot y+y=\frac{1}{4}$ proponemos como solución a un polinomio de grado cero, es
+            decir, una constante, o sea que $\Psi_4(t)=A_0$, entonces
+            $\dot\Psi_4(t)=0=\ddot\Psi_4(t)$, por lo que $A_0=\frac{1}{4}$ y por lo tanto
+            $\Psi_4(t)=\frac{1}{4}$.
+
+            Para poder proponer una solución particular de $\ddot y+y=\frac{1}{4}\cos{2t}$, primero
+            resolvamos la ecuación aplicando la identidad de Euler: $\ddot y+y=\frac{1}{4}e^{2it}$.
+            Notemos que $2i$ no es solución para la ecuación homogénea asociada, por lo que la
+            propuesta de solución para ésta última ecuación es $\gamma(t)=A_0e^{2it}$, entonces:
+            \begin{itemize}
+                \item $\dot\gamma(t)=2iA_0e^{2it}$
+                \item $\ddot\gamma(t)=-4A_0e^{2it}$
+            \end{itemize}
+            Sustituyendo tenemos que
+            \begin{align*}
+                -4A_0e^{2it}+A_0e^{2it} &= \frac{1}{4}e^{2it} \\[0.2cm]
+                -4A_0+A_0 &= \frac{1}{4} \\[0.2cm]
+                -3A_0 &= \frac{1}{4} \\[0.2cm]
+                A_0 &= -\frac{1}{12}
+            \end{align*}
+            Por lo que $\gamma(t)=-\frac{1}{12}e^{2it}=-\frac{1}{12}[\cos{2t}+i\sen{2t}]
+            =-\frac{1}{12}\cos{2t}-\frac{i}{12}\sen{2t}$. Dado que nuestra ecuación originalmente
+            sólo contaba con el coseno, tomaremos únicamente la parte real de $\gamma$, por lo que
+            $\Psi_3(t)=-\frac{1}{12}\cos{2t}$
+
+            Para encontrar la solución particular de $\ddot y+y=\frac{1}{4}\cos{4t}$ podemos
+            alternativamente sugerir como una propuesta sesnsata a $\Psi_2(t)=A\sen(4t)+B\cos(4t)$,
+            de éste modo $\dot\Psi_2(t)=4A\cos{(4t)}-4B\sen{(4t)}$ y $\ddot\Psi_2(t)=-16A\sen{(4t)}
+            -16B\cos{(4t)}$. Sustituyendo en $\ddot y+y=\frac{1}{4}\cos{4t}$ tenemos:
+            \begin{align*}
+                -16A\sen{(4t)}-16B\cos{(4t)}+A\sen(4t)+B\cos(4t) &= \frac{1}{4}\cos{(4t)} \\
+                (-16A+A)\sen{(4t)}+(-16B+B)\cos{(4t)} &= 0\sen{(4t)}+\frac{1}{4}\cos{(4t)} \\
+            \end{align*}
+            por lo que tenemos que
+            \begin{equation*}
+                \begin{cases}
+                    -15A=0 \Rightarrow A=0 \\
+                    -15B=\frac{1}{4} \Rightarrow B=-\frac{1}{60}
+                \end{cases}
+            \end{equation*}
+            Por lo tanto $\Psi_2(t)=-\frac{1}{60}\cos{(4t)}$
+
+            Finalmente, de manera análoga encontramos la solución particular para
+            $\ddot y+y=\frac{1}{4}\cos{6t}$. Proponemos $\Psi_1(t)=A\sen{6t}+B\cos{6t}$
+            \begin{itemize}
+                \item $\dot\Psi_1(t)=6A\cos{6t}-6B\sen{6t}$
+                \item $\ddot\Psi_1(t)=-36A\sen{6t}-36B\cos{6t}$
+            \end{itemize}
+            Entonces
+            \begin{align*}
+                -36A\sen{6t}-36B\cos{6t}+A\sen{6t}+B\cos{6t} &= \frac{1}{4}\cos{6t} \\
+                -35A\sen{6t}-35B\cos{6t} &= 0\sen{6t}+\frac{1}{4}\cos{6t}
+            \end{align*}
+            entonces
+            \begin{equation*}
+                \begin{cases}
+                    -35A=0 \\
+                    -35B=\frac{1}{4}
+                \end{cases}
+            \end{equation*}
+            y por lo tanto $\Psi_1(t)=-\frac{1}{140}\cos{6t}$
+
+            Por lo tanto, la solución particular es
+            $$\Psi(t)=-\frac{1}{140}\cos{6t}-\frac{1}{60}\cos{4t}-\frac{1}{12}\cos{2t}-\frac{1}{4}$$
+            Y por lo tanto, la solución general se obtiene de sumar $\Phi(t)+\Psi(t)$
+            \[
+                y(t)
+                =\Phi(t)+\Psi(t)
+                = C_1\cos{t}+C_2\sen{t}
+                -\frac{1}{140}\cos{6t}-\frac{1}{60}\cos{4t}-\frac{1}{12}\cos{2t}-\frac{1}{4}
+            \]
         }
         % Ejercicio 5
         \item {
@@ -58,6 +171,22 @@
 
             \color{azul}
             % Respuesta
+            Primero encontremos la solución general de la ec. homogénea asociada, es decir,
+            $\ddot y+5\dot y+4y=0$, que tiene como ecuación característica $r^2+5r+4=0$.
+            \begin{align*}
+                r^2+5r+4 &= 0 \\
+                (r+4)(r+1) &= 0 \\
+                r_1+4 &= 0 \rightarrow r_1 = -4\\
+                r_2+1 &= 0 \rightarrow r_2 = -1
+            \end{align*}
+            Cómo tiene dos raíces reales diferentes, entonces la solución general de la ecuación
+            homogénea asociada es
+            $$\Phi(t)=C_1e^{-4t}+C_2e^{-t}$$
+            Ahora encontremos una solución particular de la ecuación diferencial. Como del lado
+            derecho de la ecuación tenemos un polinomio de segundo grado multiplicado por una
+            expresión esxponencial, sería sensato suponer que una solución particular sea
+            $\Psi(t)=v(t)e^{7t}$, siempre y cuando $e^{7t}$ no sea una solución particular de la
+            homogénea, pero, como puede verse, no lo es.
         }
         % Ejercicio 6
         \item {
@@ -65,6 +194,10 @@
 
             \color{azul}
             % Respuesta
+            Primero encontremos la solución general de la ec. homogénea asociada, es decir,
+            $\ddot y-2\dot y-3y=0$, que tiene como ecuación característica $r^2-2r-3=0$.
+
+
         }
         % Ejercicio 7
         \item {
