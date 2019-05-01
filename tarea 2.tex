@@ -205,15 +205,101 @@
 
             \color{azul}
             % Respuesta
+             Primero encontremos la solución general de la ec. homogénea asociada, es decir,
+            $\ddot y+2\dot y+5y=0$, que tiene como ecuación característica $r^2+2r+5=0$.
+            \begin{align*}
+            r^2+2r+5 &= 0 \\
+            &= \frac{-2 \pm \sqrt{4 - 4 \cdot 1 \cdot 5}}{2 \cdot 1} \\
+            &= \frac{-2 \pm \sqrt{-16}}{2} \\
+            &= \frac{-2 \pm 4 i}{2} \\
+            &= -1 \pm 2 i
+            \end{align*}
+            Como tiene raíces complejas, tomamos de una raíz su parte real como $\lambda=-1$ y el
+            coeficiente de su parte imaginaria como $\mu=2$ y obtenemos la solución general de 
+            la homogénea asociada
+            \begin{align*}
+            \Phi(t) &= e^{-t}(C_1\cos{2t}+C_2 sen{2t})
+            \end{align*}
+            Ahora encontremos una solución particular de la ecuación diferencial.\\
+            Usamos el método de la conjetura sensata, donde $\gamma(t) =  t(A_0e^{-t}sen(2t) + A_1e^{-t}cos(2t))$:
+            \begin{itemize}
+            	\item $\dot\gamma(t)= A_0(e^{-t}sen(2t) + t(-e^{-t}sen(2t) + 2e^{-t}cos(2t))) + A_1(e^{-t}cos(2t) + t(-e^{-t}cos(2t) - 2e^{-t}sen(2t)))  $
+            	\item $\ddot\gamma(t)= A_0(-3e^{-t} tsen(2t) - 4e^{-t}tcos(2t) -2e^{-t}sin(2t) + 4e^{-t}cos(2t)) + A_1(-3e^{-t} tcos(2t) + 4e^{-t}tsen(2t) -2e^{-t}cos(2t) - 4e^{-t}sen(2t))$
+            \end{itemize}
+            Sustituyendo tenemos que
+            \begin{align*}
+            (A_0(-3e^{-t} tsen(2t) - 4e^{-t}tcos(2t) -2e^{-t}sen(2t) + 4e^{-t}cos(2t)) \\+ A_1(-3e^{-t} tcos(2t) + 4e^{-t}tsen(2t) -2e^{-t}cos(2t)- 4e^{-t}sen(2t)))\\ + 2(A_0(e^{-t}sen(2t) + t(-e^{-t}sen(2t) + 2e^{-t}cos(2t))) + A_1(e^{-t}cos(2t) + t(-e^{-t}cos(2t) - 2e^{-t}sen(2t))))\\ +   5(A_0e^{-t}tsen(2t) + A_1e^{-t}tcos(2t)) &= 4e^{-t}cos{(2t)} \\[0.2cm]
+            4A_0e^{-t}cos{(2t)} -4A_1e^{-t}sen{(2t)}  &= 4e^{-t}\cos{(2t)} \\[0.2cm]
+            \end{align*}
+            entonces
+            \begin{equation*}
+            \begin{cases}
+            4A_0 =4 \\
+            -4A_1 = 0
+            \end{cases}
+            \end{equation*}
+            Por lo tanto $A_0 = 1, \ A_1 = 0$ y tenemos que la solución particular es $\gamma(t) =  e^{-t}tsen(2t)$\\
+            
+            De ahí tenemos que la solución es: $y(t) = e^{-t}(C_1\cos{2t}+C_2 sen{2t}) + e^{-t}tsen(2t)$\\
+            
+            Aplicamos las condiciones iniciales:\\
+            $y(0) = e^{-0}(C_1\cos{2\cdot0}+C_2 sen{2\cdot0}) + e^{-0}\cdot0sen(2\cdot 0) = 1$\\
+            $y(0) = C_1\cos{0}+C_2 sen{0} = 1$\\
+            $y(0) = C_1 = 1$\\
+            
+            $y'(0) = -e^{-0}\cdot0sen(2\cdot 0) + 2e^{-0}\cdot0cos(2\cdot 0)  
+            -C_2e^{-0}sen(2\cdot 0) + 2C_2e^{-0}cos(2\cdot 0)         -e^{-0}cos(2\cdot 0) -e^{-0}sen(2\cdot 0)= 0$\\
+            $y'(0) = -C_2sen(0) + 2C_2cos(0) -cos(0) -sen(0)= 0$\\
+            $y'(0) =  2C_2 -1 = 0$\\
+            
+            Despejamos $C_1, C_2$ y tenemos que $C_1 = 1, C_2 = \frac{1}{2}$\\
+            
+            Sustituimos $C_1, C_2$ en y(t) y tenemos de resultado final:\\
+            $y(t) = e^{-t}(\cos{2t}+ \frac{1}{2}sen{2t}) + e^{-t}tsen(2t)$\\
         }
         % Ejercicio 8
         \item {
             Determinar la solución general de
-            $$\ddot{y}+\lambda^2y=\sum_{m=1}^{N}{a_m\sen{(m\pi t)}}$$
+            $$\ddot{y}+\lambda^2y=\sum_{m=1}^{N}{a_m sen{(m\pi t)}}$$
             con $\lambda>0$ y $\lambda\neq m\pi$ para $m=1,2,\ldots,N$.
 
             \color{azul}
-            % Respuesta
+            Primero encontremos la solución general de la ec. homogénea asociada, es decir,
+            $\ddot{y}+\lambda^2y=0$, que tiene como ecuación característica $r^2+\lambda^2=0$.
+            \begin{align*}
+            r^2+\lambda^2 &= 0 \\
+            r^2 &= -\lambda^2 \\
+            r &= \pm\sqrt{-1 (\lambda^2)} \\
+            Como \ \lambda > 0:
+            r_{1,2} &= i\lambda
+            \end{align*}
+            Como tiene raíces complejas, tomamos de una raíz su parte real como $\alpha=0$ y el
+            coeficiente de su parte imaginaria como $\beta=\lambda$ y obtenemos la solución general de 
+            la homogénea asociada
+            \begin{align*}
+            \Phi(t) &= e^{0t}(C_1\cos{\lambda t}+C_2\sen{\lambda t}) \\
+            &= C_1\cos{\lambda t}+C_2\sen{\lambda t}
+            \end{align*}
+            Ahora encontremos una solución particular de la ecuación diferencial.
+            
+            La solución particular buscada será la suma de las soluciones particulares para cada término de la suma, buscamos la solución particular para un k $1<k<N$ y sería la conjetura sensata: $\gamma_k = A_0 e^{k \pi i t}$\\
+            
+            \begin{itemize}
+            	\item $\ddot \gamma_k(t)= A_0 (k \pi i)^2e^{k \pi i t} $
+            \end{itemize}
+        
+         Sustituyendo tenemos que
+        \begin{align*}
+        \lambda^2 (A_0 e^{k \pi i t}) + (A_0 (k \pi i)^2e^{k \pi i t}) &= a_ke^{k \pi i t} \\[0.2cm]
+        \end{align*}
+        Entonces $A_0 (\lambda^2 + (k \pi i)^2) = a_k$ \\[0.2cm]
+        De ahí, $A_0 = \frac{a_k}{\lambda^2 + (k \pi i)^2}$\\
+        Sustituimos $A_0$ y tenemos que la solución particular de un k es  $\gamma_k = \frac{a_k}{\lambda^2 + (k \pi i)^2} e^{k \pi i t}$\\
+        
+        De ahí, la solución particular de toda la suma es $\gamma (t) = \sum_{k=1}^{N} \frac{a_k}{\lambda^2 + (k \pi i)^2} e^{k \pi i t} $\\
+        
+        Y tenemos que la solución final es: $y(t) = C_1\cos{\lambda t}+C_2\sen{\lambda t} + \sum_{k=1}^{N} \frac{a_k}{\lambda^2 + (k \pi i)^2} e^{k \pi i t}$ \\
+         
         }
     \end{enumerate}
 \end{document}
