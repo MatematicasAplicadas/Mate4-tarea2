@@ -2,6 +2,7 @@
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{amssymb}
 
 \usepackage{anysize}
 \marginsize{1.3cm}{1.3cm}{1.3cm}{1.3cm}
@@ -27,10 +28,55 @@
     \begin{enumerate}
         % Ejercicio 1
         \item {
-            $\ddot y+\dot y+4y=2\senh{(t)}$
-
+            $\ddot y+\dot y+4y=2\senh{(t)}$\\
             \color{azul}
-            % Respuesta
+            Primero, hay que resolver ecuación homogénea asociada
+            $\ddot y+\dot y+4y=0$ con polinomio característico
+            $r^2+r+4$.
+            Usando lo fórmula general para encontrar las raíces del polinomio
+            \[
+            r = \frac{-1\pm\sqrt{1^2-4(1)(4)}}{2(1)} =
+            \frac{-1\pm\sqrt{15}i}{2} =
+            -\frac{1}{2}\pm\frac{\sqrt{15}}{2}i
+            \]
+            Como son dos raíces imaginarias, entonces dos soluciones
+            independientes de la ecuación
+            homogénea son $e^{-\frac{t}{2}}\cos{\frac{\sqrt{15}t}{2}}$ 
+            y $e^{-\frac{t}{2}}\sen{\frac{\sqrt{15}t}{2}}$, por lo que 
+            la solución general de la ecuación homogénea es
+            \[y = c_1e^{-\frac{t}{2}}\cos{\frac{\sqrt{15}t}{2}} + 
+            c_2e^{-\frac{t}{2}}\sen{\frac{\sqrt{15}t}{2}}, \textit{ con } c_1, c_2 \in \mathbb{R}\]
+            
+            Ahora, hay que encontrar una solución particular de ecuación
+            original. Notemos que
+            \[
+            \ddot y+\dot y+4y=2\senh{(t)} = 
+            2(\frac{e^t-e^{-t}}{2}) = 
+            e^t+ (-e^{-t})
+            \]
+            Por lo que usando una conjetura sensata, digamos que la
+            solución particular es algo de la forma $y=Ae^t+Be^{-t}$.
+            Luego, hay que calcular las derivadas.
+            \begin{align*}
+                \dot y &= Ae^t-Be^{-t} \\
+                \ddot y &= Ae^t+Be^{-t}
+            \end{align*}
+            Y sustituyendo estos valores en la ecuación original, 
+            \begin{align*}
+                 Ae^t+Be^{-t} + Ae^t-Be^{-t} + 4Ae^t+4Be^{-t} &= 
+                 e^t-e^{-t}\\
+                 6Ae^x+4Be^{-t} &=e^t-e^{-t} \\
+                 \implies A = \frac{1}{6} \land B = -\frac{1}{4}
+            \end{align*}
+            Por lo que una solución particular a la ecuación original
+            es $y = \frac{e^t}{6}-\frac{e^{-t}}{4}$. \\
+            Por lo tanto, la forma general de las soluciones de la 
+            ecuación son 
+            \[y = c_1e^{-\frac{t}{2}}\cos{\frac{\sqrt{15}t}{2}} + 
+            c_2e^{-\frac{t}{2}}\sen{\frac{\sqrt{15}t}{2}} +
+            \frac{e^t}{6}-\frac{e^{-t}}{4}, \textit{ con } 
+            c_1, c_2 \in \mathbb{R}\]
+            
         }
         % Ejercicio 2
         \item {
@@ -38,6 +84,68 @@
 
             \color{azul}
             % Respuesta
+            Primero, hay que resolver la ecuación homogénea asociada a 
+            este ecuación, que es $2\ddot y+3\dot y+y=0$, que tiene como
+            polinomio característico a $2r^2+3r+1 =
+            2(r+1)(r+\frac{1}{2})$.\\
+            Por lo que las raíces del polinomio son $r = -1, -\frac{1}{2}$.\\
+            Como son dos raíces reales, entonces dos soluciones
+            independientes a la ecuación homogénea son $e^{-t}$ y 
+            $e^{-\frac{t}{2}}$, por lo que la forma general de las
+            soluciones es
+            \[y = c_1e^{-t} + c_2e^{-\frac{t}{2}}, \text{ con }
+            c_1, c_2 \in \mathbb{R}\]
+            Ahora, hay que encontrar una solución particular de la
+            ecuación original.
+            Como conjetura sensata, digamos que una solución es de la 
+            forma $y = At^2+Bt+C+D\sen{t}+E\cos{t}$.
+            Obteniendo las derivadas
+            \begin{align*}
+                \dot y &= 2At + B + D\cos{t} - E\sen{t} \\
+                \ddot y &= 2A - D\sen{t} - E\cos{t}
+            \end{align*}
+            Y sustituyendo en la ecuación original
+            \begin{align*}
+                2(2A - D\sen{t} - E\cos{t}) +
+                3(2At + B + D\cos{t} - E\sen{t}) +
+                At^2 + Bt + C + D\sen{t} + E\cos{t} &=
+                t^2+3\sen{(t)} \\
+                4A - 2D\sen{t} - 2E\cos{t} +
+                6At + 3B + 3D\cos - 3E\sen{t} +
+                At^2 + Bt + C + D\sen{t} + E\cos{t} &=
+                t^2+3\sen{(t)} \\
+                At^{2} + (6A + B)t + (4A + 3B + C) + (-2D-3E+D)\sen{t} +
+                (-2E+3D+E)\cos{t} = t^2+3\sen{(t)} \\
+                 At^{2} + (6A + B)t + (4A + 3B + C) + (-D-3E)\sen{t} +
+                (-E+3D)\cos{t} = t^2+3\sen{(t)}
+            \end{align*}
+            De aquí se obtiene el siguiente sistema de ecuaciones
+            \begin{align*}
+                A &= 1 \\
+                6A + B &= 0 \\
+                4A + 3B + C &= 0 \\
+                -D - 3E &= 3 \\
+                - E + 3D &= 0
+            \end{align*}
+            $A$ ya está resuelto.\\
+            Sustituyendo su valor en la segunda ecuación tenemos 
+            $6+B = 0 \implies B = -6$. \\
+            Sustituyendo esto en la tercera ecuación tenemos
+            $4+18+C = 0 \implies C = -24$.\\
+            Luego, sumando el triple de la cuarta ecuación a la quinta,
+            tenemos que $-10E=9 \implies E = -\frac{9}{10}$. \\
+            Y sustituyendo esto en la cuarta ecuación, tenemos que
+            $-D + \frac{27}{10} = 3 \implies D = -\frac{3}{10}$.\\
+            Por lo que una solución particular a la ecuación original es
+            \[y = t^2 - 6t - 24 -\frac{3}{10}\cos{t} -
+            \frac{9}{10}\sen{t}\]
+            Por lo que forma general de las soluciones de la ecuación
+            es
+            \[
+            y = c_1e^{-t} + c_2e^{-\frac{t}{2}} + t^2 - 6t - 24 -
+            \frac{3}{10}\cos{t} - \frac{9}{10}\sen{t}, 
+            \text{ con } c_1, c_2 \in \mathbb{R}
+            \]
         }
         % Ejercicio 3
         \item {
@@ -45,6 +153,47 @@
 
             \color{azul}
             % Respuesta
+            Primero, hay que encontrar la solución de la ecuación
+            homogénea asociada $\ddot y-6\dot y+9y=0$.\\
+            Esta tiene polinomio característico $r^2-6r+9 = (r-3)(r-3)$,
+            por lo que tiene una única raíz $r = 3$.\\
+            Entonces, dos soluciones independientes son $e^3t$ y
+            $te^{3t}$, y todas las soluciones de la ecuación homogénea
+            son de la forma
+            \[y = c_1e^{3t} + c_2te^{3t}, \text{ con }
+            c_1, c_2 \in \mathbb{R}\]
+            Ahora hay que encontrar una solución particular de la
+            ecuación original.\\
+            Como conjetura sensata, digamos que una solución tendría la
+            forma de $y = pe^{3t}$, con $p$ un polinomio.\\
+            Derivando, tenemos que
+            \begin{align*}
+                \dot y &= (\dot p + 3p)e^{3t} \\
+                \ddot y &= (\ddot p + 6 \dot p + 9 p)e^{3t}
+            \end{align*}
+            Sustituyendo en la ecuación original
+            \begin{align*}
+                (\ddot p + 6 \dot p + 9 p - 6 (\dot p + 3p) + 9p)e^{3t}
+                &= (3t^7-5t^4)e^{3t} \\
+                \ddot pe^{3t} &= (3t^7-5t^4)e^{3t}
+            \end{align*}
+            Y esta igualdad se da únicamente cuando $\ddot p = 3t^7-5t^4$. Entonces,
+            resolviendo para $p$.
+            \begin{align*}
+                p = \int{\int{\ddot p dt}} = \int{\int{3t^7-5t^4 dt}} 
+                = \int{(\frac{3t^8}{8}-t^5 + k_1) dt} 
+                = \frac{3t^9}{72} - \frac{t^6}{6} + \frac{k_1^2}{2} + k_2
+            \end{align*}
+            Cada elección de $k_1$ y $k_2$ define un posible polinomio. Como sólo se
+            requiere uno, se tomará el más sencillo, con $k_1 = k_2 = 0$. \\
+            Entonces una solución particular de la ecuación original es 
+            $y = (\frac{3t^9}{72} - \frac{t^6}{6})e^{3t}$.
+            Entonces, la forma general de todas las soluciones de la ecuación
+            original es 
+             \[
+             y = c_1e^{3t} + c_2te^{3t} + (\frac{3t^9}{72} - \frac{t^6}{6})e^{3t}, 
+             \text{ con } c_1, c_2 \in \mathbb{R}
+            \]
         }
         % Ejercicio 4
         \item {
