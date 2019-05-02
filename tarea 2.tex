@@ -167,25 +167,25 @@
         }
         % Ejercicio 5
         \item {
-            $\ddot y+5\dot y+4y=t^2e^{7t}$
+            $\ddot y-5\dot y+4y=t^2e^{7t}$
 
             \color{azul}
             % Respuesta
             Primero encontremos la solución general de la ec. homogénea asociada, es decir,
-            $\ddot y+5\dot y+4y=0$, que tiene como ecuación característica $r^2+5r+4=0$.
+            $\ddot y-5\dot y+4y=0$, que tiene como ecuación característica $r^2-5r+4=0$.
             \begin{align*}
-                r^2+5r+4 &= 0 \\
-                (r+4)(r+1) &= 0 \\
-                r_1+4 &= 0 \rightarrow r_1 = -4\\
-                r_2+1 &= 0 \rightarrow r_2 = -1
+                r^2-5r+4 &= 0 \\
+                (r-4)(r-1) &= 0 \\
+                r_1-4 &= 0 \rightarrow r_1 = 4\\
+                r_2-1 &= 0 \rightarrow r_2 = 1
             \end{align*}
             Cómo tiene dos raíces reales diferentes, entonces la solución general de la ecuación
             homogénea asociada es
-            $$\Phi(t)=C_1e^{-4t}+C_2e^{-t}$$
+            $$\Phi(t)=C_1e^{4t}+C_2e^{t}$$
             Ahora encontremos una solución particular de la ecuación diferencial. Como del lado
             derecho de la ecuación tenemos un polinomio de segundo grado multiplicado por una
-            expresión esxponencial, sería sensato suponer que una solución particular sea
-            $\Psi(t)=(A_0+A_1t+A_2t^2)e^{7t}$, siempre y cuando $e^{7t}$ no sea una solución
+            expresión esxponencial, sería sensato suponer que una solución particular sea de la
+            forma $\Psi(t)=(A_0+A_1t+A_2t^2)e^{7t}$, siempre y cuando $e^{7t}$ no sea una solución
             particular de la homogénea, pero, como puede verse, no lo es. Entonces:
             \begin{align*}
                 \dot\Psi(t)
@@ -193,28 +193,39 @@
                 &= \left[7A_0+A_1+(7A_1+2A_2)t+7A_2t^2\right]e^{7t}\\
                 \ddot\Psi(t)
                 &= [7A_1+2A_2+14A_2t]e^{7t}+7\left[7A_0+A_1+(7A_1+2A_2)t+7A_2t^2\right]e^{7t}\\
-                &= \left[49A_0+14A_1+2A_2+(49A_1+28A_2)t+49A_1t^2\right]e^{7t}
+                &= \left[49A_0+14A_1+2A_2+(49A_1+28A_2)t+49A_2t^2\right]e^{7t}
             \end{align*}
             Sustituyendo en la ecuación diferencial tendremos:
-            \begin{equation*}
+            \begin{align*}
                 \left[
-                    49A_0+14A_1+2A_2+(49A_1+28A_2)t+49A_1t^2
-                    +5(7A_0+A_1+(7A_1+2A_2)t+7A_2t^2)
-                \right]e^{7t} = t^2e^{7t}
-            \end{equation*}
+                    49A_0+14A_1+2A_2+(49A_1+28A_2)t+49A_2t^2
+                    -5(7A_0+A_1+(7A_1+2A_2)t+7A_2t^2)
+                    +4(A_0+A_1t+A_2t^2)
+                \right]e^{7t}\\
+                 = t^2e^{7t}
+            \end{align*}
             es decir
             \begin{equation*}
-                84A_0+19A_1+2A_2+(84A_1+38A_2)t+(49A_1+35A_2)t^2=0+0\cdot t+t^2
+                18A_0+9A_1+2A_2+(18A_1+18A_2)t+18A_2t^2=0+0\cdot t+t^2
             \end{equation*}
             por lo que
             \begin{equation*}
                 \begin{cases}
-                    84A_0+19A_1+2A_2 = 0 \\
-                    84A_1+38A_2 = 0 \\
-                    49A_1+35A_2 = 1
+                    18A_0+9A_1+2A_2 = 0 \\
+                    18A_1+18A_2 = 0 \\
+                    18A_2 = 1
                 \end{cases}
             \end{equation*}
-            
+            Tenemos entonces que $A_2=\frac{1}{18}$, entonces $18A_1+1=0 \Rightarrow
+            A_1=-\frac{1}{18}$, y entonces $18A_0-\frac{1}{2}+\frac{1}{9}=0 \Rightarrow
+            A_0=\frac{7}{324}$.
+
+            Por lo tanto la solución particular es
+            $$\Psi(t)=\left(\frac{7}{324}-\frac{1}{18}t+\frac{1}{18}t^2\right)e^{7t}$$
+            o bien
+            $$\Psi(t)=\frac{1}{324}(18t^2-18t+7)e^{7t}$$
+            Por lo que la solución general de la ecuación diferencial es $\Phi+\Psi$, que es
+            $$y(t)=C_1e^{4t}+C_2e^{t}+\frac{1}{324}(18t^2-18t+7)e^{7t}$$
         }
         % Ejercicio 6
         \item {
@@ -263,7 +274,9 @@
                 \dot y(0)= 3C_1\cdot(1)-C_2\cdot(1)-(0+\frac{7}{3})\cdot(1) &= 0 \\
                 3C_1-C_2 &= \frac{7}{3}
             \end{align*}
-            Sumamnos ambas ecuaciones para obtener que $4C_1=\frac{12}{3}=4$, entonces $C_1=1$ y como $1+C_2=\frac{5}{3}$ tenemos que $C_2=\frac{2}{3}$. Por lo tanto, la solución de la ecuación con condiciones iniciales es
+            Sumamnos ambas ecuaciones para obtener que $4C_1=\frac{12}{3}=4$, entonces $C_1=1$ y
+            como $1+C_2=\frac{5}{3}$ tenemos que $C_2=\frac{2}{3}$. Por lo tanto, la solución de la
+            ecuación con condiciones iniciales es
             $$y(t)=e^{3t}+\frac{2}{3}e^{-t}-\left(t+\frac{2}{3}\right)e^{2t}$$
         }
         % Ejercicio 7
