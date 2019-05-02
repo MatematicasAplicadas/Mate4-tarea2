@@ -74,7 +74,7 @@
             ecuación son 
             \[y = c_1e^{-\frac{t}{2}}\cos{\frac{\sqrt{15}t}{2}} + 
             c_2e^{-\frac{t}{2}}\sen{\frac{\sqrt{15}t}{2}} +
-            \frac{e^t}{6}-\frac{e^{-t}}{4}, \textit{ con } 
+            \frac{e^t}{6}-\frac{e^{-t}}{4}, \text{ con } 
             c_1, c_2 \in \mathbb{R}\]
             
         }
@@ -85,7 +85,7 @@
             \color{azul}
             % Respuesta
             Primero, hay que resolver la ecuación homogénea asociada a 
-            este ecuación, que es $2\ddot y+3\dot y+y=0$, que tiene como
+            esta ecuación, que es $2\ddot y+3\dot y+y=0$, que tiene como
             polinomio característico a $2r^2+3r+1 =
             2(r+1)(r+\frac{1}{2})$.\\
             Por lo que las raíces del polinomio son $r = -1, -\frac{1}{2}$.\\
@@ -268,7 +268,7 @@
             $\Psi_3(t)=-\frac{1}{12}\cos{2t}$
 
             Para encontrar la solución particular de $\ddot y+y=\frac{1}{4}\cos{4t}$ podemos
-            alternativamente sugerir como una propuesta sesnsata a $\Psi_2(t)=A\sen(4t)+B\cos(4t)$,
+            alternativamente sugerir como una propuesta sensata a $\Psi_2(t)=A\sen(4t)+B\cos(4t)$,
             de éste modo $\dot\Psi_2(t)=4A\cos{(4t)}-4B\sen{(4t)}$ y $\ddot\Psi_2(t)=-16A\sen{(4t)}
             -16B\cos{(4t)}$. Sustituyendo en $\ddot y+y=\frac{1}{4}\cos{4t}$ tenemos:
             \begin{align*}
@@ -333,7 +333,7 @@
             $$\Phi(t)=C_1e^{4t}+C_2e^{t}$$
             Ahora encontremos una solución particular de la ecuación diferencial. Como del lado
             derecho de la ecuación tenemos un polinomio de segundo grado multiplicado por una
-            expresión esxponencial, sería sensato suponer que una solución particular sea de la
+            expresión exponencial, sería sensato suponer que una solución particular sea de la
             forma $\Psi(t)=(A_0+A_1t+A_2t^2)e^{7t}$, siempre y cuando $e^{7t}$ no sea una solución
             particular de la homogénea, pero, como puede verse, no lo es. Entonces:
             \begin{align*}
@@ -351,7 +351,7 @@
                     -5(7A_0+A_1+(7A_1+2A_2)t+7A_2t^2)
                     +4(A_0+A_1t+A_2t^2)
                 \right]e^{7t}\\
-                 = t^2e^{7t}
+                 &= t^2e^{7t}
             \end{align*}
             es decir
             \begin{equation*}
@@ -423,7 +423,7 @@
                 \dot y(0)= 3C_1\cdot(1)-C_2\cdot(1)-(0+\frac{7}{3})\cdot(1) &= 0 \\
                 3C_1-C_2 &= \frac{7}{3}
             \end{align*}
-            Sumamnos ambas ecuaciones para obtener que $4C_1=\frac{12}{3}=4$, entonces $C_1=1$ y
+            Sumamos ambas ecuaciones para obtener que $4C_1=\frac{12}{3}=4$, entonces $C_1=1$ y
             como $1+C_2=\frac{5}{3}$ tenemos que $C_2=\frac{2}{3}$. Por lo tanto, la solución de la
             ecuación con condiciones iniciales es
             $$y(t)=e^{3t}+\frac{2}{3}e^{-t}-\left(t+\frac{2}{3}\right)e^{2t}$$
@@ -457,8 +457,8 @@
             \end{itemize}
             Sustituyendo tenemos que
             \begin{align*}
-            (A_0(-3e^{-t} tsen(2t) - 4e^{-t}tcos(2t) -2e^{-t}sen(2t) + 4e^{-t}cos(2t)) \\+ A_1(-3e^{-t} tcos(2t) + 4e^{-t}tsen(2t) -2e^{-t}cos(2t)- 4e^{-t}sen(2t)))\\ + 2(A_0(e^{-t}sen(2t) + t(-e^{-t}sen(2t) + 2e^{-t}cos(2t))) + A_1(e^{-t}cos(2t) + t(-e^{-t}cos(2t) - 2e^{-t}sen(2t))))\\ +   5(A_0e^{-t}tsen(2t) + A_1e^{-t}tcos(2t)) &= 4e^{-t}cos{(2t)} \\[0.2cm]
-            4A_0e^{-t}cos{(2t)} -4A_1e^{-t}sen{(2t)}  &= 4e^{-t}\cos{(2t)} \\[0.2cm]
+                (A_0(-3e^{-t} t\sen{(2t)} - 4e^{-t}t\cos{(2t)} -2e^{-t}sen(2t) + 4e^{-t}cos(2t)) \\+ A_1(-3e^{-t} t\cos{(2t)} + 4e^{-t}t\sen{(2t)} -2e^{-t}cos(2t)- 4e^{-t}sen(2t)))\\ + 2(A_0(e^{-t}sen(2t) + t(-e^{-t}sen(2t) + 2e^{-t}cos(2t))) + A_1(e^{-t}cos(2t) + t(-e^{-t}cos(2t) - 2e^{-t}sen(2t))))\\ +   5(A_0e^{-t}t\sen{(2t)} + A_1e^{-t}t\cos{(2t)}) &= 4e^{-t}cos{(2t)} \\[0.2cm]
+                4A_0e^{-t}cos{(2t)} -4A_1e^{-t}sen{(2t)}  &= 4e^{-t}\cos{(2t)}
             \end{align*}
             entonces
             \begin{equation*}
@@ -467,21 +467,21 @@
             -4A_1 = 0
             \end{cases}
             \end{equation*}
-            Por lo tanto $A_0 = 1, \ A_1 = 0$ y tenemos que la solución particular es $\gamma(t) =  e^{-t}tsen(2t)$\\
+            Por lo tanto $A_0 = 1, \ A_1 = 0$ y tenemos que la solución particular es $\gamma(t) =  e^{-t}tsen(2t)$
             
-            De ahí tenemos que la solución es: $y(t) = e^{-t}(C_1\cos{2t}+C_2 sen{2t}) + e^{-t}tsen(2t)$\\
+            De ahí tenemos que la solución es: $y(t) = e^{-t}(C_1\cos{2t}+C_2 sen{2t}) + e^{-t}tsen(2t)$
             
             Aplicamos las condiciones iniciales:\\
             $y(0) = e^{-0}(C_1\cos{2\cdot0}+C_2 sen{2\cdot0}) + e^{-0}\cdot0sen(2\cdot 0) = 1$\\
             $y(0) = C_1\cos{0}+C_2 sen{0} = 1$\\
-            $y(0) = C_1 = 1$\\
+            $y(0) = C_1 = 1$
             
             $y'(0) = -e^{-0}\cdot0sen(2\cdot 0) + 2e^{-0}\cdot0cos(2\cdot 0)  
             -C_2e^{-0}sen(2\cdot 0) + 2C_2e^{-0}cos(2\cdot 0)         -e^{-0}cos(2\cdot 0) -e^{-0}sen(2\cdot 0)= 0$\\
             $y'(0) = -C_2sen(0) + 2C_2cos(0) -cos(0) -sen(0)= 0$\\
-            $y'(0) =  2C_2 -1 = 0$\\
+            $y'(0) =  2C_2 -1 = 0$
             
-            Despejamos $C_1, C_2$ y tenemos que $C_1 = 1, C_2 = \frac{1}{2}$\\
+            Despejamos $C_1, C_2$ y tenemos que $C_1 = 1, C_2 = \frac{1}{2}$
             
             Sustituimos $C_1, C_2$ en y(t) y tenemos de resultado final:\\
             $y(t) = e^{-t}(\cos{2t}+ \frac{1}{2}sen{2t}) + e^{-t}tsen(2t)$\\
@@ -511,7 +511,7 @@
             \end{align*}
             Ahora encontremos una solución particular de la ecuación diferencial.
             
-            La solución particular buscada será la suma de las soluciones particulares para cada término de la suma, buscamos la solución particular para un k $1<k<N$ y sería la conjetura sensata: $\gamma_k = A_0 e^{k \pi i t}$\\
+            La solución particular buscada será la suma de las soluciones particulares para cada término de la suma, buscamos la solución particular para un k $1<k<N$ y sería la conjetura sensata: $\gamma_k = A_0 e^{k \pi i t}$
             
             \begin{itemize}
             	\item $\ddot \gamma_k(t)= A_0 (k \pi i)^2e^{k \pi i t} $
@@ -523,11 +523,11 @@
         \end{align*}
         Entonces $A_0 (\lambda^2 + (k \pi i)^2) = a_k$ \\[0.2cm]
         De ahí, $A_0 = \frac{a_k}{\lambda^2 + (k \pi i)^2}$\\
-        Sustituimos $A_0$ y tenemos que la solución particular de un k es  $\gamma_k = \frac{a_k}{\lambda^2 + (k \pi i)^2} e^{k \pi i t}$\\
+        Sustituimos $A_0$ y tenemos que la solución particular de un k es  $\gamma_k = \frac{a_k}{\lambda^2 + (k \pi i)^2} e^{k \pi i t}$
         
-        De ahí, la solución particular de toda la suma es $\gamma (t) = \sum_{k=1}^{N} \frac{a_k}{\lambda^2 + (k \pi i)^2} e^{k \pi i t} $\\
+        De ahí, la solución particular de toda la suma es $\gamma (t) = \sum_{k=1}^{N} \frac{a_k}{\lambda^2 + (k \pi i)^2} e^{k \pi i t} $
         
-        Y tenemos que la solución final es: $y(t) = C_1\cos{\lambda t}+C_2\sen{\lambda t} + \sum_{k=1}^{N} \frac{a_k}{\lambda^2 + (k \pi i)^2} e^{k \pi i t}$ \\
+        Y tenemos que la solución final es: $y(t) = C_1\cos{\lambda t}+C_2\sen{\lambda t} + \sum_{k=1}^{N} \frac{a_k}{\lambda^2 + (k \pi i)^2} e^{k \pi i t}$ 
          
         }
     \end{enumerate}
