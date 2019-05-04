@@ -30,6 +30,7 @@
         \item {
             $\ddot y+\dot y+4y=2\senh{(t)}$\\
             \color{azul}
+            
             Primero, hay que resolver ecuación homogénea asociada
             $\ddot y+\dot y+4y=0$ con polinomio característico
             $r^2+r+4$.
@@ -75,7 +76,7 @@
             \[y = c_1e^{-\frac{t}{2}}\cos{\frac{\sqrt{15}t}{2}} + 
             c_2e^{-\frac{t}{2}}\sen{\frac{\sqrt{15}t}{2}} +
             \frac{e^t}{6}-\frac{e^{-t}}{4}, \text{ con } 
-            c_1, c_2 \in \mathbb{R}\]
+            c_1, c_2 \in \mathbb{R}\]\\[.03cm]
             
         }
         % Ejercicio 2
@@ -97,55 +98,63 @@
             c_1, c_2 \in \mathbb{R}\]
             Ahora, hay que encontrar una solución particular de la
             ecuación original.
-            Como conjetura sensata, digamos que una solución es de la 
-            forma $y = At^2+Bt+C+D\sen{t}+E\cos{t}$.
-            Obteniendo las derivadas
+            
+            La solución particular buscada será la suma de las soluciones particulares para cada
+            término de la suma, es decir, $\Psi(t)=\Psi_1+\Psi_2+\Psi_3+\Psi_4$ donde
+            \begin{itemize}
+            	\item $\Psi_1$ es la solución particular de $2\ddot y+3\dot y+y=t^2$
+            	\item $\Psi_2$ es la solución particular de $2\ddot y+3\dot y+y=3\sen{(t)}$
+            \end{itemize}
+            
+            Resolvamos $\Psi_1$ dando una conjetura sensata, $\Psi_1=A_0t^2 + A_1t+A_2$.
+            Luego, hay que calcular las derivadas.
             \begin{align*}
-                \dot y &= 2At + B + D\cos{t} - E\sen{t} \\
-                \ddot y &= 2A - D\sen{t} - E\cos{t}
+            \dot \Psi_1 &= 2A_0t + A_1 \\
+            \ddot \Psi_1 &= 2A_0
             \end{align*}
-            Y sustituyendo en la ecuación original
+            Y sustituyendo estos valores en la ecuación original, 
             \begin{align*}
-                2(2A - D\sen{t} - E\cos{t}) +
-                3(2At + B + D\cos{t} - E\sen{t}) +
-                At^2 + Bt + C + D\sen{t} + E\cos{t} &=
-                t^2+3\sen{(t)} \\
-                4A - 2D\sen{t} - 2E\cos{t} +
-                6At + 3B + 3D\cos - 3E\sen{t} +
-                At^2 + Bt + C + D\sen{t} + E\cos{t} &=
-                t^2+3\sen{(t)} \\
-                At^{2} + (6A + B)t + (4A + 3B + C) + (-2D-3E+D)\sen{t} +
-                (-2E+3D+E)\cos{t} = t^2+3\sen{(t)} \\
-                 At^{2} + (6A + B)t + (4A + 3B + C) + (-D-3E)\sen{t} +
-                (-E+3D)\cos{t} = t^2+3\sen{(t)}
-            \end{align*}
-            De aquí se obtiene el siguiente sistema de ecuaciones
+				2(2A_0) + 3(2A_0t + A_1)+ (A_0t^2 + A_1t+A_2) &= t^2 \\
+				A_0t^2 + (6A_0 + A_1)t+ (4A_0 + 3A_1 + A_2) &= t^2
+            \end{align*}    	
+            entonces
+            \begin{equation*}
+            \begin{cases}
+            A_0=1 \\
+            6A_0 + A_1=0 \implies A_1 = -6\\
+            4A_0 + 3A_1 + A_2 = 0 \implies A_2 = 14
+            \end{cases}
+            \end{equation*}
+            De ahí, $\Psi_1 = t^2 -6t + 14$\\
+            
+            Resolvamos $\Psi_2$ dando una conjetura sensata, $\Psi_2=A_0\sen(t) + A_1\cos(t)$.
+            Luego, hay que calcular las derivadas.
             \begin{align*}
-                A &= 1 \\
-                6A + B &= 0 \\
-                4A + 3B + C &= 0 \\
-                -D - 3E &= 3 \\
-                - E + 3D &= 0
+            	\dot \Psi_2 &= A_0\cos(t) - A_1\sen(t) \\
+            	\ddot \Psi_2 &= -A_0\sen(t) - A_1\cos(t)
             \end{align*}
-            $A$ ya está resuelto.\\
-            Sustituyendo su valor en la segunda ecuación tenemos 
-            $6+B = 0 \implies B = -6$. \\
-            Sustituyendo esto en la tercera ecuación tenemos
-            $4+18+C = 0 \implies C = -24$.\\
-            Luego, sumando el triple de la cuarta ecuación a la quinta,
-            tenemos que $-10E=9 \implies E = -\frac{9}{10}$. \\
-            Y sustituyendo esto en la cuarta ecuación, tenemos que
-            $-D + \frac{27}{10} = 3 \implies D = -\frac{3}{10}$.\\
-            Por lo que una solución particular a la ecuación original es
-            \[y = t^2 - 6t - 24 -\frac{3}{10}\cos{t} -
-            \frac{9}{10}\sen{t}\]
-            Por lo que forma general de las soluciones de la ecuación
-            es
-            \[
-            y = c_1e^{-t} + c_2e^{-\frac{t}{2}} + t^2 - 6t - 24 -
-            \frac{3}{10}\cos{t} - \frac{9}{10}\sen{t}, 
-            \text{ con } c_1, c_2 \in \mathbb{R}
-            \]
+            Y sustituyendo estos valores en la ecuación original, 
+            \begin{align*}
+            2(-A_0\sen(t) - A_1\cos(t)) + 3(A_0\cos(t) - A_1\sen(t))+ (A_0\sen(t) + A_1\cos(t)) &= 3\sen{(t)} \\
+            (-A_0 - 3A_1)\sen(t) + (3A_0 - A_1)\cos(t) &= 3\sen{(t)} 
+            \end{align*}
+            entonces
+            \begin{equation*}
+            \begin{cases}
+            -A_0 - 3A_1=3 \\
+            3A_0 - A_1=0 \implies A_1 = -\frac{9}{10} A_0 = -\frac{3}{10}
+            \end{cases}
+            \end{equation*}
+            De ahí, $\Psi_2 = -\frac{3}{10}\sen(t) -\frac{9}{10}\cos(t)$\\
+            
+            Por lo tanto la solución particular es $\Psi = t^2 -6t + 14 -\frac{3}{10}\sen(t) -\frac{9}{10}\cos(t)$\\
+            
+            Por lo tanto, la forma general de las soluciones de la 
+            ecuación son 
+            \[y = c_1e^{-t} + c_2e^{-\frac{t}{2}} + t^2 -6t + 14 -\frac{3}{10}\sen(t) -\frac{9}{10}\cos(t), \text{ con } 
+            c_1, c_2 \in \mathbb{R}\]
+            
+            
         }
         % Ejercicio 3
         \item {
@@ -189,9 +198,9 @@
             Entonces una solución particular de la ecuación original es 
             $y = (\frac{3t^9}{72} - \frac{t^6}{6})e^{3t}$.
             Entonces, la forma general de todas las soluciones de la ecuación
-            original es 
+            original simplificada es 
              \[
-             y = c_1e^{3t} + c_2te^{3t} + (\frac{3t^9}{72} - \frac{t^6}{6})e^{3t}, 
+             y = c_1e^{3t} + c_2te^{3t} + (\frac{t^9}{24} - \frac{t^6}{6})e^{3t}, 
              \text{ con } c_1, c_2 \in \mathbb{R}
             \]
         }
@@ -273,7 +282,7 @@
             -16B\cos{(4t)}$. Sustituyendo en $\ddot y+y=\frac{1}{4}\cos{4t}$ tenemos:
             \begin{align*}
                 -16A\sen{(4t)}-16B\cos{(4t)}+A\sen(4t)+B\cos(4t) &= \frac{1}{4}\cos{(4t)} \\
-                (-16A+A)\sen{(4t)}+(-16B+B)\cos{(4t)} &= 0\sen{(4t)}+\frac{1}{4}\cos{(4t)} \\
+                (-16A+A)\sen{(4t)}+(-16B+B)\cos{(4t)} &= 0\sen{(4t)}+\frac{1}{4}\cos{(4t)} 
             \end{align*}
             por lo que tenemos que
             \begin{equation*}
